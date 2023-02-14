@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html'; charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+        <title>INDIN TEST</title>
+        <style>
+            html {
+                background: #e6e9e9;
+                background-color:#f3f3f3;
+/*                background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);*/
+                -webkit-font-smoothing: antialiased;
+            }
+            
+            header#page_header{
+	           background:#35424a;
+	           color:#ffffff;
+	           padding-top:0px;
+	           min-height:70px;
+	           border-bottom:#e8491d 3px solid;
+            }
+            
+            body {
+                background:#fff;
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+                color: #545454;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0 auto;
+                margin-top: 5px;
+                max-width: 1000px;
+                
+                /*padding: 2em 2em 4em;*/
+            }
+            
+            section#searchBar{
+                float:left;
+                width:25%;
+            }
+            
+            section#resultTable{
+                float:right;
+                width:75%;
+            }
+            
+        table{
+            width:90%;
+            align-content: center;
+            border-style:groove;
+            border-radius: 5px;
+            margin-top: 0px;
+            margin-left: 40px;
+/*            margin: -5 5 5 5;    */
+/*            border-collapse: collapse;*/
+            
+        }
+            table#head{
+            width:20%;
+            align-content: center;
+            border-style:groove;
+            border-radius: 5px;
+            margin-top: 100px;
+            margin-left: 40px;
+            border: none;
+            color: chartreuse;    
+/*            margin: -5 5 5 5;    */
+/*            border-collapse: collapse;*/
+            
+        }
+        
+            table#practice{
+                width:40%;
+                align-content: center;
+            border-style:groove;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 20px;    
+            margin-left: 80px;
+            }    
+            
+        
+        th, td{
+            border:none;
+        }
+        
+        td:nth-child(n){
+            text-align: center;
+        }
+        
+        th:nth-child(n){
+            text-align: center;
+        }
+        
+            table#head th{
+                
+            }    
+        th{
+            background-color:#e8491d;
+            color: #fff;
+            font-style:oblique;
+            /*color:#e8491d;*/
+	       font-weight:bold;
+        }
+        
+        tr:nth-of-type(even){
+            background-color: #F3F3F3;
+        }
+        tr:nth-of-type(odd){
+            background-color: #ddd;
+        }
+            
+            /*FieldSet*/
+
+    fieldset{
+/*        width:20%;*/
+/*        border: none;*/
+        background-color: #ddd;
+    }    
+    
+    fieldset legend{
+        background-color: #ddd;
+        margin-top: 5px;
+/*        padding:0 6px 0 0;*/
+    }
+    
+    fieldset ol{
+        list-style: none;
+        padding:0;
+        margin: 2px;
+    }
+    
+    fieldset ol li{
+        margin:0 0 9px 0;
+        padding:0;
+    }
+    
+    fieldset input{
+        display: block;
+    }
+    
+    input{
+        width:80%;
+        background-color: #fff;
+        border: 1px solid #bbb;
+    }
+    
+    input{
+        width:80%;
+        padding:0;
+        background-color: #FFF;
+        border-radius: 5px;
+    }
+    
+            
+            footer#page_footer{
+                clear:both;
+                width:100%;
+                display:block;
+                text-align: center;
+                background-color:#e8491d;
+	            color:#ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <header id='page_header'>
+            <h1>I<span style="color:red">A</span><span style="font-family:italic">Select</span></h1>
+        </header>
+        
+        <section id='resultTable'>
+            <header id='bestScore'>
+                
+                <div id='bScore'></div>
+            </header>
+
+            <body>
+                
+                <div id='users'>
+                </div>
+                 
+            </body>
+            
+            
+        </section>
+        <section id='searchBar'>
+            <nav>
+                <form id='UserScenario'>
+            <fieldset id='search1'>
+<!--                <legend>Scenario Set by User</legend>-->
+                <legend><b>Context</b></legend>
+                <ol>
+                    <li>
+                        <label for='function'>Function</label>
+                        <!--<input id='function' type='text' name='function'>-->
+                        <select name="function", id= "func">
+                            <option id = "Monitoring">Monitoring</option>
+                            <option id = "Simulation">Simulation</option>
+                            <option id = "Control">Control</option>
+                        
+                        </select>
+                        
+                        
+                    </li>
+                    <li>
+                        <label for='applicationDomain'> Domain</label>
+<!--                        <input id='applicationDomain' type='text' name='applicationDomain'>-->
+                        <select name="domain", id = dom>
+                            <option id = "Factory">Factory Automation</option>
+                            <option id = "Building">Building Automation</option>
+                            <option id = "Energy">Energy</option>
+                        
+                        </select>
+                    </li>
+                </ol>
+                <ol>
+                    <li>
+                        <label for='technologyCapable'>Host Agents</label>
+                        <select name="HostAgents", id= "host">
+                            <option id = "Yes">Yes</option>
+                            <option id = "No">No</option>
+                            
+                        
+                        </select>
+<!--                        <input id='technologyCapable' type='text' name='technologyCapable'>-->
+                    </li>
+                </ol>   
+            </fieldset>
+            <fieldset id='search2'>
+                <!--<legend>Scenario Set by User</legend>-->
+                <legend><b>Weights for criteria</b></legend>
+                <ol>
+                    <li>
+                        <label for='scalability'>Scalibility</label>
+                        <select name="w1", id= scale>
+                            <option id = "r1">0%</option>
+                            <option id = "r2">10%</option>
+                            <option id = "r3">20%</option>
+                            <option id = "r4">30%</option>
+                            <option id = "r5">40%</option>
+                            <option id = "r6">50%</option>
+                            <option id = "r7">60%</option>
+                            <option id = "r8">70%</option>
+                            <option id = "r9">80%</option>
+                            <option id = "r10">90%</option>
+                            <option id = "r11">100%</option>
+                           
+                        
+                        </select>
+                    </li>
+                    <li>
+                        <label for='timeBahaviour'>Time Behaviour</label>
+                        <select name="w1", id= timeB>
+                            <option id = "r1">0%</option>
+                            <option id = "r2">10%</option>
+                            <option id = "r3">20%</option>
+                            <option id = "r4">30%</option>
+                            <option id = "r5">40%</option>
+                            <option id = "r6">50%</option>
+                            <option id = "r7">60%</option>
+                            <option id = "r8">70%</option>
+                            <option id = "r9">80%</option>
+                            <option id = "r10">90%</option>
+                            <option id = "r11">100%</option>
+                        
+                        </select>
+                    </li>
+                </ol>
+                <ol>
+                    <li>
+                        <label for='reusability'>Reusability</label>
+                        <select name="w1", id= reuse>
+                            <option id = "r1">0%</option>
+                            <option id = "r2">10%</option>
+                            <option id = "r3">20%</option>
+                            <option id = "r4">30%</option>
+                            <option id = "r5">40%</option>
+                            <option id = "r6">50%</option>
+                            <option id = "r7">60%</option>
+                            <option id = "r8">70%</option>
+                            <option id = "r9">80%</option>
+                            <option id = "r10">90%</option>
+                            <option id = "r11">100%</option>
+                        
+                        </select>
+                    </li>
+                </ol>   
+            </fieldset>
+        </form>
+        </nav>
+        <button id='button'>Search</button>    
+        </section>
+        
+        <footer id='page_footer'>
+            <p>&copy; 2019 chandan.sharma@aut.ac.nz</p>
+        
+        </footer>
+        
+        
+          <script>
+            document.getElementById('button').addEventListener('click', loadUsers);
+            function loadUsers(){
+                
+                
+                var scalabilityWeight = document.getElementById("scale");
+                var scalability = scalabilityWeight.options[scalabilityWeight.selectedIndex].value;
+                console.log(scalability);
+                
+                var timeBehaviourWeight = document.getElementById("timeB");
+                var timeBehaviour = timeBehaviourWeight.options[timeBehaviourWeight.selectedIndex].value;
+                console.log(timeBehaviour);
+                
+                var reusabilityWeight = document.getElementById("reuse");
+                var reusability = reusabilityWeight.options[reusabilityWeight.selectedIndex].value;
+                console.log(reusability);
+                
+                var functionValue = document.getElementById("func");
+                var functionV = functionValue.options[functionValue.selectedIndex].value;
+                console.log(functionV);
+                
+                var domainValue = document.getElementById("dom");
+                var domain = domainValue.options[domainValue.selectedIndex].value;
+                console.log(domain);
+                
+                var hostValue = document.getElementById("host");
+                var host = hostValue.options[hostValue.selectedIndex].value;
+                console.log(host);
+                
+                if(navigator.appVersion.indexOf("Win") != -1){
+                    console.log("The OS is Windows");
+                
+                    var urlBuilder = 'http://localhost:8080/enterVar/'
+                    urlBuilder += '/' + host + '/' + functionV + '/' + domain + '/' + scalability.substring(0, (scalability.length - 1)) + '/' +               timeBehaviour.substring(0, (timeBehaviour.length - 1)) + '/' + reusability.substring(0, (reusability.length - 1)) + '.json';
+                
+                    var sc = parseInt(scalability.substring(0, (scalability.length - 1)));
+                    var tm = parseInt(timeBehaviour.substring(0, (timeBehaviour.length - 1)));
+                    var re = parseInt(reusability.substring(0, (reusability.length - 1)));
+                
+                    var totalWeights = sc + tm + re;
+                
+                    console.log(totalWeights);
+                //console.log(urlBuilder);
+           // var str = document.getElementById('function');
+            //console.log(str.innerHTML);
+                    var xhr = new XMLHttpRequest();
+            //xhr.open('GET','GitUsers.json',true);
+                    xhr.open('GET', urlBuilder); 
+                }
+                
+                else if(navigator.appVersion.indexOf("Mac") != -1){
+                    console.log("The OS is Mac");
+                
+                    var urlBuilder = 'http://localhost:8080/enterVar/'
+                    urlBuilder += '/'+ host + '/' + functionV + '/' + domain + '/' + scalability.substring(0, (scalability.length - 1)) + '/' +               timeBehaviour.substring(0, (timeBehaviour.length - 1)) + '/' + reusability.substring(0, (reusability.length - 1)) + '.json';
+                
+                    var sc = parseInt(scalability.substring(0, (scalability.length - 1)));
+                    var tm = parseInt(timeBehaviour.substring(0, (timeBehaviour.length - 1)));
+                    var re = parseInt(reusability.substring(0, (reusability.length - 1)));
+                
+                    var totalWeights = sc + tm + re;
+                
+                    console.log(totalWeights);
+                //console.log(urlBuilder);
+           // var str = document.getElementById('function');
+            //console.log(str.innerHTML);
+                    var xhr = new XMLHttpRequest();
+            //xhr.open('GET','GitUsers.json',true);
+                    xhr.open('GET', urlBuilder); 
+                }
+                
+                xhr.onload = function(){
+               if(this.status == 200 ){
+                   
+                   if(totalWeights <= 100){
+                        var users = JSON.parse(this.responseText);
+                        //console.log(users);
+                        var output = '' ;
+                        output += '<table>'+
+                                '<tr>'+
+                                '<th>NAME</th>'+
+                                '<th>API CLIENT</th>'+
+                                '<th>CHANNEL</th>'+
+                                '<th>FINAL-SCORE</th>'+
+                                '</tr>'
+                        var count = 0;
+                        for(var usr in users){
+                            count++;
+                            output += 
+                                '<tr>'+
+                                '<td>'+users[usr].name+'</td>'+
+                                '<td>'+users[usr].API+'</td>'+
+                                '<td>'+users[usr].Channel+'</td>'+
+                                '<td>'+users[usr].SFinal+'</td>'
+                                '</tr>'       
+                        }
+                        getBestPractice(users,count);
+                        output += '</table>';
+                        document.getElementById('users').innerHTML = output;
+                    }
+                   else{
+                       window.alert("The sum of all weights should not be greater than 100")
+                   }
+               }
+           }
+           // xhr.setRequestHeader("Content-type","application/json");    
+//            xhr.onload = function(){
+//                if(this.status == 200){
+//                    var users = JSON.parse(this.responseText);
+//                    
+//                    var output = '' ;
+//                    output += '<table>'+
+//                                '<tr>'+
+//                                '<th>NAME</th>'+
+//                                '<th>API CLIENT</th>'+
+//                                '<th>CHANNEL</th>'+
+//                                '<th>FINAL-SCORE</th>'+
+//                                '</tr>'
+//                    var count = 0;
+//                    for(var usr in users){
+//                        count++;
+//                        output += 
+//                            '<tr>'+
+//                            '<td>'+users[usr].name+'</td>'+
+//                            '<td>'+users[usr].API+'</td>'+
+//                            '<td>'+users[usr].Channel+'</td>'+
+//                            '<td>'+users[usr].SFinal+'</td>'
+//                            '</tr>'       
+//                    }
+//                    getBestPractice(users,count);
+//                    output += '</table>';
+//                    document.getElementById('users').innerHTML = output;
+//                }
+//            }
+            xhr.send();
+        }
+              
+              
+            function getBestPractice(users,count){
+                
+               // var func = document.getElementById('function').innerHTML;
+           // console.log("The Function is:" + func)
+                
+                var output = '';
+                var i = 0;
+                var techniqueName = new Array(count);
+                var scoreFinalArray = new Array(count);
+                output += '<table id="practice">'+
+                            '<tr>'+
+                            '<th> RECOMMENDED PRACTICE </th>'+
+                            '</tr>'
+                
+                for(usr in users){
+                    techniqueName[i] = users[usr].name;
+                    scoreFinalArray[i] = users[usr].SFinal;
+                    i++;
+                }
+                
+                
+                for(usr in users){
+                    console.log(users[usr]);
+                }
+                
+                //example of bubble sort Algorithm
+                var num =0;
+                while(num < count){
+                    for(i = 0; i < num; i++){
+                        //console.log("The ID is: " + scoreArr[i] + "The score is: " + scoreFinalArray[i]);
+                        if(scoreFinalArray[i]<=scoreFinalArray[i+1]){
+                            continue;
+                        }
+                        else{
+                            swap(scoreFinalArray, i,i+1);
+                            swap(techniqueName,i,i+1);
+                        }
+                    }
+                    num++;
+                }
+                
+                for(var i = 0; i < count; i++){
+                    console.log('After swap' + scoreFinalArray[i]);
+                    if(i == (count - 1)){
+                         output += '<tr>'+
+                                    '<td>'+techniqueName[i]+'</td>'+
+                                    '</tr>'
+                        break;
+                    }
+                    else{
+                         
+                    }
+                }
+                output+= '</table>';
+                document.getElementById('bScore').innerHTML = output;
+            }
+            
+            function swap(scoreFinalArray, i , j){
+                var temp;
+                temp = scoreFinalArray[i];
+                scoreFinalArray[i] = scoreFinalArray[j];
+                scoreFinalArray[j] = temp;
+            }  
+        
+//            function getBestPractice(users,count){
+//                var output = '';
+//                var i = 0;
+//                var scoreArr = new Array(count);
+//                var scoreFinalArray = new Array(count);
+//                output += '<table id="practice">'+
+//                            '<tr>'+
+//                            '<th> Recommended Practice </th>'+
+//                            '</tr>'
+//                
+//                for(usr in users){
+//                    scoreArr[i] = users[usr].Score;
+//                    scoreFinalArray[i] = users[usr].SFinal;
+//                    i++;
+//                }
+//                
+////                for(var i = 0; i < count; i++ ){
+////                    console.log("The score final is:" + scoreFinalArray[i]);
+////                }
+//                //example of bubble sort
+//                var num =0;
+//                while(num < count){
+//                    for(var i =0; i < count; i++){
+//                        //console.log("The ID is: " + scoreArr[i] + "The score is: " + scoreFinalArray[i]);
+//                        if(scoreFinalArray[i]<scoreFinalArray[i+1]){
+//                            continue;
+//                        }
+//                        else{
+//                            swap(scoreFinalArray, i,i+1);
+//                        }
+//                    }
+//                    num++;
+//                }
+//                 
+//                //console.log(scoreFinalArray[count]);
+//                var numOfrows = 0;
+//                var finalTechniqueList = new Array(count);
+//               
+//                for(usr in users){
+//                    
+//                    //can use this logic to do the filtering
+//                    if(users[usr].SFinal == scoreFinalArray[count]){
+//                        //console.log(users[usr].name);
+//                        //numOfrows++;
+//                        finalTechniqueList[numOfrows] = users[usr].name;
+//                        numOfrows++;
+//                        //break; 
+//                        //todo logic around selecting techniques if more than one score values are same
+//                    }
+//                   
+//                    
+//                }
+//              
+//                
+//              
+//                
+//                //console.log(finalTechniqueList);
+//                //console.log("The number of rows are:" + numOfrows);
+//                
+//                output += '<tr>'+
+//                                    '<td>'+finalTechniqueList[numOfrows - 1]+'</td>'+
+//                                '</tr>'
+//                
+//                //console.log("The final score is: " +scoreFinalArray[count]);
+//               
+//                output+= '</table>';
+//                document.getElementById('bScore').innerHTML = output;
+//            }
+//            
+//            function swap(scoreFinalArray, i , j){
+//                var temp;
+//                temp = scoreFinalArray[i];
+//                scoreFinalArray[i] = scoreFinalArray[j];
+//                scoreFinalArray[j] = temp;
+//            }
+        </script>
+        
+<!--
+        <script>
+            document.getElementById('button').addEventListener('click', loadUsers);
+            function loadUsers(){
+           // var str = document.getElementById('function');
+           // console.log(str.innerHTML);
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','GitUsers.json',true);
+            xhr.onload = function(){
+                if(this.status == 200){
+                    var users = JSON.parse(this.responseText);
+                    
+                    var output = '' ;
+                    output += '<table id="head">'+
+                                '<tr>'+
+                                '<th>DETAILS</th>'+
+                                '</tr>'
+                    output += '<table>'+
+                                '<tr>'+
+                                '<th>TECHNIQUE DETAILS</th>'+
+                                '<th> API CLIENT</th>'+
+                                '<th> CHANNEL </th>'+
+                                '<th> SCORE </th>'+
+                                '<th> SCORE-FINAL </th>'+
+                                '</tr>'
+                    var count = 0;
+                    for(var usr in users){
+                        count++;
+                        output += 
+                            '<tr>'+
+                            '<td>'+users[usr].name+'</td>'+
+                            '<td>'+users[usr].API+'</td>'+
+                            '<td>'+users[usr].Channel+'</td>'+
+                            '<td>'+users[usr].Score+'</td>'+
+                            '<td>'+users[usr].SFinal+'</td>'+
+                            '</tr>'       
+                    }
+                    getBestPractice(users,count);
+                    output += '</table>';
+                    document.getElementById('users').innerHTML = output;
+                }
+            }
+            xhr.send();
+        }
+        
+            function getBestPractice(users,count){
+                
+               // var func = document.getElementById('function').innerHTML;
+           // console.log("The Function is:" + func)
+                
+                var output = '';
+                var i = 0;
+                var techniqueName = new Array(count);
+                var scoreFinalArray = new Array(count);
+                output += '<table id="practice">'+
+                            '<tr>'+
+                            '<th> RECOMMENDED PRACTICE </th>'+
+                            '</tr>'
+                
+                for(usr in users){
+                    techniqueName[i] = users[usr].name;
+                    scoreFinalArray[i] = users[usr].SFinal;
+                    i++;
+                }
+                
+                //example of bubble sort Algorithm
+                var num =0;
+                while(num < count){
+                    for(i = 0; i < num; i++){
+                        //console.log("The ID is: " + scoreArr[i] + "The score is: " + scoreFinalArray[i]);
+                        if(scoreFinalArray[i]<=scoreFinalArray[i+1]){
+                            continue;
+                        }
+                        else{
+                            swap(scoreFinalArray, i,i+1);
+                            swap(techniqueName,i,i+1);
+                        }
+                    }
+                    num++;
+                }
+                
+                for(var i = 0; i < count; i++){
+                    console.log('After swap' + scoreFinalArray[i]);
+                    if(i == (count - 1)){
+                         output += '<tr>'+
+                                    '<td>'+techniqueName[i]+'</td>'+
+                                    '</tr>'
+                        break;
+                    }
+                    else{
+                         
+                    }
+                }
+                output+= '</table>';
+                document.getElementById('bScore').innerHTML = output;
+            }
+            
+            function swap(scoreFinalArray, i , j){
+                var temp;
+                temp = scoreFinalArray[i];
+                scoreFinalArray[i] = scoreFinalArray[j];
+                scoreFinalArray[j] = temp;
+            }
+        </script>
+-->
+        
+    </body>
+
+</html>
